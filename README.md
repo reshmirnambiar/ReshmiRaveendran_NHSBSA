@@ -40,7 +40,7 @@ You can run the tests using Maven with variious configurations.
 --mvn test -Dcucumber.filter.tags="@smoke"
 --mvn test -Dcucumber.filter.tags="@regression"
 
-4.Combine All Parameters (Env + Browser + Tags)
+4. Combine All Parameters (Env + Browser + Tags)
 --mvn test -Denv=qa -Dbrowser=edge -Dcucumber.filter.tags="@smoke"
 
 ## Reporting
@@ -57,5 +57,8 @@ This project is configured to generate detailed test execution reports in two fo
 
 
 <img width="1421" alt="image" src="https://github.com/user-attachments/assets/591ee28a-d415-42bf-9e26-8841b5d860f1" />
+
+<img width="1422" alt="image" src="https://github.com/user-attachments/assets/2866e2da-18b3-4f41-ac3a-9d439816c17a" />
+
 
 
