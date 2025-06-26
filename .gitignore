@@ -1,1 +1,6 @@
 /target/
+/FailedScreenshots/
+/test-output/
+.settings
+.idea
+*.DS_Store
