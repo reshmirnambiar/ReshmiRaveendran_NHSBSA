@@ -28,7 +28,8 @@ This automation framework uses:
    mvn clean install
 
 ## Running Tests:
-1. Run all tests (default browser is Edge if not specified):
+You can run the tests using Maven with variious configurations.
+1. Run all tests (default Environment & Browser):
  --mvn test
 
 2. Run tests on a specific browser (Chrome or Edge):
@@ -37,6 +38,10 @@ This automation framework uses:
 
 3. Run tests with specific tag(s):
 --mvn test -Dcucumber.filter.tags="@smoke"
+--mvn test -Dcucumber.filter.tags="@regression"
+
+4.Combine All Parameters (Env + Browser + Tags)
+--mvn test -Denv=qa -Dbrowser=edge -Dcucumber.filter.tags="@smoke"
 
 ## Reporting
 
