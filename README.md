@@ -56,6 +56,6 @@ This project is configured to generate detailed test execution reports in two fo
   `target/extent-reports/extent-report.html`
 
 
-
+<img width="1421" alt="image" src="https://github.com/user-attachments/assets/591ee28a-d415-42bf-9e26-8841b5d860f1" />
 
 
