@@ -1,42 +1,56 @@
-# Introduction
-Test suite created to test the 'get help with paying for NHS costs online service'. This verify the NHS cost help based on user input into the checker tool.
-Framework Model : Cucumber with Page Object Model
+# NHS Job  Automated Test Suite
+This project is an automated testing framework for NHS Job search applications using Selenium WebDriver, Cucumber, and Maven.
+It supports multiple browsers and allows running tests by tags or the full test suite via command-line parameters.
 
-# Technology stack:
+## Project Overview
+This automation framework uses:
+- 
+- **Selenium WebDriver** for browser automation
+- **Cucumber** for BDD-style test writing with Gherkin
+- **Maven** for build and dependency management
+- **WebDriverManager** for automatic driver management
 
-> - Selenium
-> - Java
-> - Page Object Model
-> - Maven
-> - JUnit
-> - JUnit Assertions
-> - apache-poi
+## Prerequisites
+- Java JDK 11 or higher
+- Maven 3.6+
+- Internet connection (for WebDriverManager to download browser drivers)
+- Chrome or Edge browser installed on the machine
 
-# Instructions:
 
-**Clone the project Directory**
-https://github.com/reshmirnambiar/ReshmiRaveendran-NHSBSA.git
+## Setup
 
-## Run Options
-  ### Maven
-```
-mvn clean verify
-```
-  ### JUnit
-  ```
-  src/test/java ==> TestRunner.java run as JUnit
-  ```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/nhs-automation.git
+   cd nhs-automation
+   
+2. Build the project and download dependencies:
+   mvn clean install
 
-# Implementations:
+## Running Tests:
+1. Run all tests (default browser is Edge if not specified):
+ --mvn test
 
-## src/test/resources 
+2. Run tests on a specific browser (Chrome or Edge):
+ --mvn test -Dbrowser=chrome
+ --mvn test -Dbrowser=edge
 
-  > - dataSheet.xlsx - created spreadsheet to have the list of scenarios with different checker tool answers lists
-  > - config.properties - project configurations 
+3. Run tests with specific tag(s):
+--mvn test -Dcucumber.filter.tags="@smoke"
 
-# Reporting:
+## Reporting
 
-> - Maven Cucumber Reporting
-![image](https://github.com/reshmirnambiar/ReshmiRaveendran-NHSBSA/assets/38712282/8823631a-5562-491e-aba6-9e50eae4452a)
+This project is configured to generate detailed test execution reports in two formats:
+
+### 1. Cucumber HTML Report
+- After the test run, a Cucumber-generated HTML report is created at:  
+  `target/cucumber-reports 
+
+### 2. Extent Report
+- The Extent report file is saved under:  
+  `target/extent-reports/extent-report.html`
+
+
+
 
 

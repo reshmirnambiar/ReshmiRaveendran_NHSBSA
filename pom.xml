@@ -1,104 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>Cucumber</groupId>
-	<artifactId>CucumberDataDriven</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.nhs.job.search</groupId>
+	<artifactId>nhs-job-search</artifactId>
+	<version>1.0.0</version>
+	<name>NHS Job Search Automation</name>
+	<url>https://www.jobs.nhs.uk/candidate/search</url>
 
-	<name>CucumberDataDriven</name>
-	<!-- FIXME change it to the project's website -->
-	<url>http://www.example.com</url>
-
+	<!-- Centralized Versions -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<!-- Java -->
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+
+		<!-- Plugin Versions -->
+		<maven.compiler.version>3.14.0</maven.compiler.version>
+		<maven.surefire.version>3.2.5</maven.surefire.version>
+		<maven.cucumber.reporting.version>5.7.0</maven.cucumber.reporting.version>
+
+		<!-- Dependency Versions -->
+		<junit.version>4.13.2</junit.version>
+		<cucumber.version>7.23.0</cucumber.version>
+		<selenium.version>4.33.0</selenium.version>
+		<webdrivermanager.version>5.7.0</webdrivermanager.version>
+		<commons.lang.version>3.13.0</commons.lang.version>
+		<velocity.version>2.3</velocity.version>
+		<extentreports.version>5.1.1</extentreports.version>
+		<extentreports.adapter.version>1.14.0</extentreports.adapter.version>
+		<poi.version>5.4.1</poi.version>
+		<poi.schemas.version>1.1</poi.schemas.version>
+		<poi.openxml4j.version>1.0-beta</poi.openxml4j.version>
+		<slf4j.version>2.0.12</slf4j.version>
+		<logback.version>1.4.14</logback.version>
+		<guava.version>33.4.8-jre</guava.version>
 	</properties>
 
 	<dependencies>
+		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Cucumber -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
-			<version>7.3.0</version>
+			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>7.3.0</version>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
 		</dependency>
 
+		<!-- Selenium & Driver Management -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${webdrivermanager.version}</version>
+		</dependency>
+
+		<!-- Apache Commons / Velocity -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>${velocity.version}</version>
+		</dependency>
+
+		<!-- Apache POI for Excel -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.9</version>
+			<version>${poi.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.9</version>
+			<version>${poi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>ooxml-schemas</artifactId>
-			<version>1.1</version>
+			<version>${poi.schemas.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>openxml4j</artifactId>
-			<version>1.0-beta</version>
+			<version>${poi.openxml4j.version}</version>
 		</dependency>
 
+		<!-- Logging -->
 		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>4.12.1</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<!-- Reports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>tech.grasshopper</groupId>
+			<artifactId>extentreports-cucumber7-adapter</artifactId>
+			<version>${extentreports.adapter.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>net.masterthought</groupId>
 			<artifactId>cucumber-reporting</artifactId>
-			<version>5.7.0</version>
-		</dependency>
-		 <dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>31.0.1-jre</version>
+			<version>5.8.6</version>
 		</dependency>
 
+		<!-- Utility -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-			<!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-			<plugins>
-				<plugin>
+		<plugins>
+			<!-- Compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.version}</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+
+			<!-- Surefire for running tests -->
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M3</version>
+				<version>${maven.surefire.version}</version>
 				<configuration>
-					<includes>**/*Runner.java</includes>
+					<includes>
+						<include>**/*Runner.java</include>
+					</includes>
 					<forkCount>3</forkCount>
-					<reuseForks>flase</reuseForks>
+					<reuseForks>false</reuseForks>
 					<testFailureIgnore>true</testFailureIgnore>
 					<threadCount>3</threadCount>
 					<parallel>classesAndMethods</parallel>
 					<useUnlimitedThreads>true</useUnlimitedThreads>
 				</configuration>
 			</plugin>
+
+			<!-- Cucumber Reporting Plugin -->
 			<plugin>
 				<groupId>net.masterthought</groupId>
 				<artifactId>maven-cucumber-reporting</artifactId>
-				<version>5.7.0</version>
+				<version>${maven.cucumber.reporting.version}</version>
 				<executions>
 					<execution>
 						<id>execution</id>
@@ -107,14 +191,15 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<projectName>Test Report</projectName>
+							<projectName>NHS Job Search Automation Report</projectName>
 							<outputDirectory>${project.build.directory}/cucumber-html-report</outputDirectory>
-							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
+							<jsonFiles>
+								<param>${project.build.directory}/cucumber.json</param>
+							</jsonFiles>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			</plugins>
-		</pluginManagement>
+		</plugins>
 	</build>
 </project>
